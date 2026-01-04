@@ -39,7 +39,7 @@ const courseSchema = new Schema ({
 
 const purchaseSchema = new Schema ({
     userId: ObjectId,
-    courseId : {
+    courseId: {
         type: ObjectId,
         ref: 'course'
     }

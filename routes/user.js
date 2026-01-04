@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+const { z } = require('zod');
 const { userMiddleware } = require("../middlewares/user.js")
 const { UserModel, PurchaseModel } = require("../database/db.js");
 const { JWT_USER_SECRET } = require("../configurations/config")
@@ -11,9 +13,11 @@ userRouter.post("/signup", async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
 
     try {
+        const hashedPassword = await bcrypt.hash(password, 5);
+
         await UserModel.create ({
             email: email,
-            password: password,
+            password: hashedPassword,
             firstName: firstName,
             lastName: lastName
         });
@@ -38,12 +42,15 @@ userRouter.post("/login", async (req, res) => {
         const user = await UserModel.findOne({
             email: email
         });
+
         if(!user) {
             return res.status(401).json ({
                 message: "User does not exist"
             });
         }
-        if (user.password === password) {
+        const passwordMatched = await bcrypt.compare(password, user.password);
+
+        if (passwordMatched) {
             const token = jwt.sign({
                 id: user._id.toString()
             }, JWT_USER_SECRET);
