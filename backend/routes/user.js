@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const { z } = require('zod');
 const { userMiddleware } = require("../middlewares/user.js")
 const { UserModel, PurchaseModel } = require("../database/db.js");
-const { JWT_USER_SECRET } = require("../configurations/config")
+const { JWT_USER_SECRET } = require("../configurations/config.js")
 const userRouter = Router();
 
 

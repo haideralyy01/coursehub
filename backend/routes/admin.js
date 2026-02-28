@@ -2,7 +2,7 @@ const { Router } = require("express");
 const jwt = require("jsonwebtoken");
 const { AdminModel, CourseModel } = require("../database/db.js");
 const { adminMiddleware } = require("../middlewares/admin.js");
-const { JWT_ADMIN_SECRET } = require("../configurations/config");
+const { JWT_ADMIN_SECRET } = require("../configurations/config.js");
 const admin = require("../middlewares/admin.js");
 const adminRouter = Router();
 
@@ -66,11 +66,11 @@ adminRouter.post("/login", async (req, res) => {
 adminRouter.post("/create-course", adminMiddleware, async (req, res) => {
     // Create course logic here...
     const adminId = req.adminId;
-    const { tittle, description, price, published, imgUrl} = req.body;
+    const { title, description, price, published, imgUrl} = req.body;
 
     try {
         const course = await CourseModel.create({
-            tittle: tittle,
+            title: title,
             description: description,
             price: price,
             published: published,
@@ -91,14 +91,13 @@ adminRouter.post("/create-course", adminMiddleware, async (req, res) => {
 
 adminRouter.put("/update-course", adminMiddleware, async (req, res) => {
     // Update course logic here...
-    const adminId = req.adminId;
-    const { tittle, description, price, published, imgUrl, courseId} = req.body;
+    const { title, description, price, published, imgUrl, courseId} = req.body;
 
     try {
         const course = await CourseModel.findByIdAndUpdate(
             courseId,
             {
-                tittle: tittle,
+                title: title,
                 description: description,
                 price: price,
                 published: published,

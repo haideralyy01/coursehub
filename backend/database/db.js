@@ -29,7 +29,7 @@ const adminSchema = new Schema ({
 });
 
 const courseSchema = new Schema ({
-    tittle: String,
+    title: String,
     description: String,
     price: Number,
     published: Boolean,
