@@ -1,3 +1,4 @@
+import Footer from "../components/footer";
 import Herosection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
 
@@ -6,6 +7,7 @@ export default function Homepage() {
         <>
             <Navbar />
             <Herosection />
+            <Footer />
         </>
     );
 }

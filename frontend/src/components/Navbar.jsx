@@ -2,7 +2,7 @@ import { SunIcon } from '@heroicons/react/24/outline'
 
 export default function Navbar() {
     return (
-        <nav className="w-full h-16 flex items-center justify-between px-32 border-b-2 bg-[#443dff]">
+        <nav className="fixed top-0 left-0 z-50 shadow-md w-full h-16 flex items-center justify-between px-32 border-b bg-[#443dff]">
             <div className="font-bold text-xl flex">
                 <div className="text-[#dddbff]">100x</div>
                 <div className="text-[#040316]">Devs</div>
