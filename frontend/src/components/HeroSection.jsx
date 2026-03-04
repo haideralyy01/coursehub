@@ -10,7 +10,7 @@ import phoneimg from "../assets/phone.png"
 export default function Herosection() {
     return (
         <>
-            <div className="flex justify-center mt-20">
+            <div className="flex justify-center mt-28">
                 <div className="text-7xl font-bold text-[#443dff]">100xDevs,</div>
                 <div className="text-7xl font-bold ml-4 text-[#040316]">because</div>
             </div>

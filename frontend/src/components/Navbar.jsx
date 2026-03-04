@@ -1,4 +1,6 @@
 import { SunIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
+
 
 export default function Navbar() {
     return (
@@ -10,10 +12,10 @@ export default function Navbar() {
             <div className="flex items-center px-4 space-x-4">
                 <SunIcon className="w-7 h-7 text-[#dddbff] cursor-pointer" />
                 <div className="h-9 rounded-sm w-16 bg-[#dddbff] flex items-center justify-center cursor-pointer">
-                    <a href="/login" className="text-sm font-medium font-medium">Login</a>
+                    <Link to="/login" className="text-sm font-medium font-medium">Login</Link>
                 </div>
                 <div className="h-9 rounded-md w-24 bg-[#040316] flex items-center justify-center cursor-pointer">
-                    <a href="/login" className="text-sm font-medium text-[#fbfbfe]">Join now</a>
+                    <Link to="/login" className="text-sm font-medium text-[#fbfbfe]">Join now</Link>
                 </div>
             </div>
         </nav>
