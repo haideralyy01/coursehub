@@ -15,7 +15,7 @@ export default function Navbar() {
                     <Link to="/login" className="text-sm font-medium font-medium">Login</Link>
                 </div>
                 <div className="h-9 rounded-md w-24 bg-[#040316] flex items-center justify-center cursor-pointer">
-                    <Link to="/login" className="text-sm font-medium text-[#fbfbfe]">Join now</Link>
+                    <Link to="/signup" className="text-sm font-medium text-[#fbfbfe]">Join now</Link>
                 </div>
             </div>
         </nav>
